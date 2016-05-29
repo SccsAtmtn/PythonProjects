@@ -147,10 +147,10 @@ def get_hot_topic_html(url):
         file.write('\n')
         
         
-#hot_topic_url = 'http://m.weibo.cn/p/index?containerid=10080819c366f62380fecd399270159fcc2184'
-#get_hot_topic_html(hot_topic_url)
-info = get_user_info_by_id('2541378475')
-print info
+hot_topic_url = 'http://m.weibo.cn/p/index?containerid=10080819c366f62380fecd399270159fcc2184'
+get_hot_topic_html(hot_topic_url)
+#info = get_user_info_by_id('2541378475')
+#print info
 #info = get_private_info_by_id('2541378475')
 #print info
 #get_friends_by_containerid('1005052213170245')
