@@ -11,9 +11,7 @@ def get_private_info_by_id(uid):
                           )
     response = urllib2.urlopen(req)
     data = response.read()
-    f = open('D:\\Python Projects\\crawler\\private.html', 'w')
-    f.write(data)
-    
+   
     private_info = []
     
     start = data.find('性别</span><p>')
@@ -56,9 +54,7 @@ def get_friends_by_containerid(containerid):
                           )
     response = urllib2.urlopen(req)
     data = response.read()
-    f = open('D:\\Python Projects\\crawler\\friends.html', 'w')
-    f.write(data)
-    
+
     friends = []
     start = 0
     end = 0
@@ -82,8 +78,6 @@ def get_user_info_by_id(uid):
                           )
     response = urllib2.urlopen(req)
     data = response.read()
-    f = open('D:\\Python Projects\\crawler\\html.html', 'w')
-    f.write(data)
     
     start = data.find('"attNum":"')+len('"attNum":"')
     end = data.find('",', start)
@@ -105,7 +99,7 @@ def get_user_info_by_id(uid):
     return info
     
         
-def get_hot_topic_html(url):
+def get_hot_topic_discuss_information(url):
     req = urllib2.Request(url,
                           headers={
                               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0',
@@ -114,9 +108,6 @@ def get_hot_topic_html(url):
                           )
     response = urllib2.urlopen(req)
     data = response.read()
-    
-    f = open('D:\\Python Projects\\crawler\\ouguan.html', 'w+')
-    f.write(data)
     
     head = '{"card_type":9'
     time_head = '"mblog":{"created_at":"'
@@ -136,7 +127,7 @@ def get_hot_topic_html(url):
         start = next
     
     
-    file = open('D:\\Python Projects\\crawler\\people.txt', 'w')
+    file = open('D:\\Python Projects\\crawler\\discuss_information.txt', 'w')
     for i in range(len(uid)):
         info = get_user_info_by_id(uid[i])
         file.write(time[i]+'  ')
@@ -147,8 +138,39 @@ def get_hot_topic_html(url):
         file.write('\n')
         
         
-hot_topic_url = 'http://m.weibo.cn/p/index?containerid=10080819c366f62380fecd399270159fcc2184'
-get_hot_topic_html(hot_topic_url)
+def get_hot_topic_fans_information(url):
+    req = urllib2.Request(url,
+                          headers={
+                              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0',
+                              'cookie': 'SUHB=0V5lNqqGfCxXs6; _T_WM=3272dcaa6c6b3d38a4f9751cefe578cf; H5_INDEX=0_my; H5_INDEX_TITLE=%E6%88%91%E7%9A%84%E5%BE%AE%E5%8D%9A%20; SUB=_2A256Tj4JDeRxGeNI71EZ-SjLzjWIHXVZsUJBrDV6PUJbrdBeLU_AkW1LHesaupiJZCZ4YxLvFh0WjtLD-OrnTg..; SSOLoginState=1464487513; M_WEIBOCN_PARAMS=uicode%3D20000174',
+                              'Connection': 'keep-alive'}
+                          )
+    response = urllib2.urlopen(req)
+    data = response.read()
+    
+    file = open('D:\\Python Projects\\crawler\\fans_information.txt', 'w+')
+    start = 0
+    end = 0
+    while (True):
+        start = data.find('{"uid":', end)
+        if (start==-1):
+            break
+        start = start +len('{"uid":')
+        end = data.find('},', start)
+        uid = data[start:end]
+        
+        info = get_user_info_by_id(uid)
+        for j in range(4):
+            file.write(info[j]+'  ')
+        for x in info[4]:
+            file.write(x+'  ')
+        file.write('\n')
+        
+        
+#hot_topic_discuss_url = 'http://m.weibo.cn/p/index?containerid=23053010080819c366f62380fecd399270159fcc2184__timeline__mobile_info_-_pageapp%3A23055763d3d983819d66869c27ae8da86cb176&containerid=23053010080819c366f62380fecd399270159fcc2184__timeline__mobile_info_-_pageapp%3A23055763d3d983819d66869c27ae8da86cb176&uid=5643896759'
+#get_hot_topic_discuss_information(hot_topic_discuss_url)
+hot_topic_fans_url = 'http://m.weibo.cn/p/index?containerid=230403_-_10080819c366f62380fecd399270159fcc2184&containerid=230403_-_10080819c366f62380fecd399270159fcc2184&title=%E7%B2%89%E4%B8%9D&uid=5643896759'
+get_hot_topic_fans_information(hot_topic_fans_url)
 #info = get_user_info_by_id('2541378475')
 #print info
 #info = get_private_info_by_id('2541378475')
