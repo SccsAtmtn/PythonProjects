@@ -3,3 +3,5 @@ discuss_information.txt格式说明：
 
 fans_information.txt格式说明：
 每行表示一个关注了热门话题讨论的用户的信息，每行格式除没有第一列（发表讨论的时间外）与discuss_information.txt相同。
+
+#号表示没有用户该项的信息
