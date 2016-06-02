@@ -205,12 +205,12 @@ def get_hot_topic_fans_information():
     file = open('fans_info.txt', 'a')
     fin = open('fans_uid.txt')
     user_id = []
-    for i in range(4635):
+    for i in range(4420):
         s = fin.readline()
         user_id.append(s[0:len(s)-1])
     for uid in user_id:
         try:
-            time.sleep(3)
+            time.sleep(5)
             #print uid
             info = get_user_info_by_id(uid)
             for i in range(len(info)-1):
@@ -224,8 +224,8 @@ def get_hot_topic_fans_information():
             continue
     file.close()
     
-cookie = 'UOR=blog.csdn.net,widget.weibo.com,login.sina.com.cn; SINAGLOBAL=8910301221166.844.1463715027234; ULV=1464597848129:9:9:3:6655188481325.942.1464597848122:1464568924612; SUHB=0nluSknokkWxHb; un=18810913874; YF-Ugrow-G0=9642b0b34b4c0d569ed7a372f8823a8e; YF-V5-G0=b59b0905807453afddda0b34765f9151; _s_tentry=login.sina.com.cn; Apache=6655188481325.942.1464597848122; YF-Page-G0=35f114bf8cf2597e9ccbae650418772f; WBStore=8ca40a3ef06ad7b2|undefined; myuid=5227568855; WBtopGlobal_register_version=f81ab92b992b2688; appkey=; WB_register_version=f81ab92b992b2688; wb_bub_hot_5643896759=1; SUB=_2A256SvtODeRxGeNM6VUU9ibEzjmIHXVZtIUGrDV8PEJb6dNhVyGXkm5JRYxgSZk3UCumP_24oFe7veIrIgA.; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WF53ubShYjawnK9F8ki.D._5NHD95QfeozNSKqR1h-fWs4Dqcjdi--Ni-i2iK.Ni--4i-2Ei-2Xi--4iKLsi-z0; SUS=SID-5227568855-1464765214-GZ-oh2d7-c7c5e95fc492c3eb9ef70dafff5c0889; SUE=es%3D56c3dfa85442c92e51a7215ded71ff1e%26ev%3Dv1%26es2%3Dec69f057396254669bc1a16491c9bc64%26rs0%3DDauC9xFdQG3kvBaLrQKooM6whxnpbFbxE2RICw1BNJQZ2e7B6XsQOS6nov3mtDoP%252BHWzSQEpt%252FaUgF0iVs7HswAiKJ8PL7zZaEKh0sd20HiTdEW9pJCnaLx3fd9feK5L6K0yCu8xCOYoQFueU9G04aYuuRz0GrJE63adheo1KTc%253D%26rv%3D0; SUP=cv%3D1%26bt%3D1464765214%26et%3D1464851614%26d%3Dc909%26i%3D0889%26us%3D1%26vf%3D%26vt%3D%26ac%3D%26st%3D0%26uid%3D5227568855%26name%3D18810913874%26nick%3D%25E7%25BD%2597%25E9%25A2%25A4%25E9%259F%25B3%26fmp%3D%26lcp%3D2014-09-01%252010%253A18%253A36; ALF=1465361427; SSOLoginState=1464765214; wvr=6; wb_bub_hot_5227568855=1'
-cookie1 = 'SUHB=0mxUWarEuX4gJT; _T_WM=3272dcaa6c6b3d38a4f9751cefe578cf; H5_INDEX=2; H5_INDEX_TITLE=%E7%BD%97%E9%A2%A4%E9%9F%B3; M_WEIBOCN_PARAMS=uicode%3D20000061%26featurecode%3D20000180%26fid%3D3981523335600811%26oid%3D3981523335600811; SUB=_2A256SvtODeTxGeNM6VUU9ibEzjmIHXVZtIUGrDV6PUJbkdANLXGhkW1eipzsM61l_aDqBnymxWGnirNJVw..; gsid_CTandWM=4ufh83321HsHxzT6zzDBylVVCdN'
+cookie = 'UOR=blog.csdn.net,widget.weibo.com,login.sina.com.cn; SINAGLOBAL=8910301221166.844.1463715027234; ULV=1464597848129:9:9:3:6655188481325.942.1464597848122:1464568924612; SUHB=0N21quxm9-PtPa; un=17710305576; YF-Ugrow-G0=9642b0b34b4c0d569ed7a372f8823a8e; YF-V5-G0=b59b0905807453afddda0b34765f9151; _s_tentry=login.sina.com.cn; Apache=6655188481325.942.1464597848122; YF-Page-G0=35f114bf8cf2597e9ccbae650418772f; WBStore=8ca40a3ef06ad7b2|undefined; myuid=5643896759; WBtopGlobal_register_version=f81ab92b992b2688; appkey=; WB_register_version=f81ab92b992b2688; wb_bub_hot_5643896759=1; wb_bub_hot_5227568855=1; wvr=6; ALF=1467371521; SUS=SID-5227568855-1464779521-GZ-8a1oy-d5f68e9be122cebd80d2d32808c70889; SUE=es%3Db9d2b73696a1f66bb1c041ed15b01e78%26ev%3Dv1%26es2%3Da0e0d7e7178615d8a9b6e05365e81374%26rs0%3DVTNgBgYsRk16ZFdmjHd9p8Xxwjswigx0CYATsl8uyxnFJp3qJH9n5hTF%252BuK3j0UM8gMqhE%252F6uGXe8ltjnKwwyYTj9lFSMN5bTVFrtJ0T%252F%252BxL8K5ZVMD52FT36u44BAK5XINvs3GpgMmR%252FfPWeyMbExuaC0qNRZhouewY%252FLWXGSE%253D%26rv%3D0; SUP=cv%3D1%26bt%3D1464779521%26et%3D1464865921%26d%3Dc909%26i%3D0889%26us%3D1%26vf%3D%26vt%3D%26ac%3D%26st%3D0%26uid%3D5227568855%26name%3D18810913874%26nick%3D%25E7%25BD%2597%25E9%25A2%25A4%25E9%259F%25B3%26fmp%3D%26lcp%3D2014-09-01%252010%253A18%253A36; SUB=_2A256SrNRDeTxGeNM6VUU9ibEzjmIHXVZtN0ZrDV8PUJbkNBeLXfskW0Lm615I6h-IvwFNr3xaO4HhXxYRw..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WF53ubShYjawnK9F8ki.D._5NHD95QfeozNSKqR1h-fWs4Dqcjdi--Ni-i2iK.Ni--4i-2Ei-2Xi--4iKLsi-z0'
+cookie1 = 'SUHB=0wn1-2Coo52I7X; _T_WM=3272dcaa6c6b3d38a4f9751cefe578cf; SUB=_2A256SrNQDeTxGeNM6VUU9ibEzjmIHXVZtN0YrDV6PUJbkdBeLXmnkW0IGa9W9NJ2mF1LJmrejboOT23nlg..; SSOLoginState=1464779520; gsid_CTandWM=4uv5CpOz5LpAngbVW5JwYlVVCdN; H5_INDEX=2; H5_INDEX_TITLE=%E7%BD%97%E9%A2%A4%E9%9F%B3; M_WEIBOCN_PARAMS=featurecode%3D20000181%26luicode%3D10000012%26lfid%3D1005053090120397_-_FOLLOWERS%26fid%3D1005053090120397_-_FOLLOWERS%26uicode%3D10000012'
 get_hot_topic_fans_information()
 #print get_user_info_by_id('609884564')
 #get_user_personal_info('5091716249', '1006065921499921')
